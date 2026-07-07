@@ -1,177 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior B2B Marketing Leader & Content Strategist</title>
-    <meta name="description" content="Portfolio of a Senior B2B Marketing Lead specializing in technical SEO, organic growth, and executive collateral for complex industries.">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saef Iqbal Ansari | B2B Organic Growth & Content Lead</title>
+<meta name="description" content="Project & Content Lead specializing in B2B organic growth, technical SEO, and thought leadership for complex, regulated industries." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0d;
+    --ink-soft: #4a4845;
+    --ink-muted: #9a9693;
+    --paper: #f7f4ef;
+    --paper-dark: #ede9e2;
+    --accent: #c84b2f;
+    --accent-soft: #f0ebe4;
+    --rule: #d8d3cb;
+    --mono: 'DM Sans', sans-serif;
+    --serif: 'DM Serif Display', serif;
+    --max: 900px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247, 244, 239, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* LAYOUT */
+  main { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+  section { padding: 6rem 0; border-bottom: 1px solid var(--rule); }
+  section:last-child { border-bottom: none; }
+
+  /* HERO */
+  .hero {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+    max-width: 800px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-body {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 650px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 3rem;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--ink-soft);
+    background: var(--paper-dark);
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    transition: background 0.2s;
+  }
+  .hero-cta:hover { background: var(--accent); }
+  .hero-cta svg { flex-shrink: 0; }
+
+  /* SECTION HEADERS */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 3rem;
+  }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 3rem;
+  }
+  .stat-cell {
+    background: var(--paper);
+    padding: 2.5rem 2rem;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-desc {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .stat-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 6px;
+  }
+
+  /* CHARTS */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+  .chart-wrap {
+    background: var(--paper-dark);
+    border: 1px solid var(--rule);
+    padding: 1.75rem;
+  }
+  .chart-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+  }
+  canvas { display: block; width: 100% !important; }
+
+  /* WORK ITEMS (Projects & Experience) */
+  .work-item {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .work-item:last-child { border-bottom: none; }
+  .work-meta { padding-top: 4px; }
+  .work-company {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .work-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .work-period {
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .work-body {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+  .work-body p { margin-bottom: 1rem; }
+  .work-body p:last-child { margin-bottom: 0; }
+  
+  .work-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 1rem;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+  }
+  .work-link:hover { opacity: 0.7; }
+  
+  .work-proof {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .proof-pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .skill-group h4 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .skill-group ul { list-style: none; }
+  .skill-group li {
+    font-size: 15px;
+    color: var(--ink-soft);
+    padding: 6px 0;
+  }
+
+  /* CONTACT */
+  .contact-row {
+    display: flex; align-items: flex-start; gap: 4rem;
+    flex-wrap: wrap;
+  }
+  .contact-left { flex: 1.5; min-width: 280px; }
+  .contact-right { flex: 1; min-width: 200px; }
+  .contact-link {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.2s;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .contact-link:hover { color: var(--accent); }
+  .contact-link:first-child { border-top: 1px solid var(--rule); }
+
+  /* FOOTER */
+  footer {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    .chart-grid { grid-template-columns: 1fr; }
+    .work-item { grid-template-columns: 1fr; gap: 1rem; }
+    .skills-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.25rem; }
+    main { padding: 0 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .contact-row { gap: 2.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <header class="site-header">
-        <div class="container header-container">
-            <div class="brand" aria-label="Personal Brand">B2B Marketing Lead.</div>
-            <nav aria-label="Main Navigation">
-                <ul class="nav-links">
-                    <li><a href="#expertise">Expertise</a></li>
-                    <li><a href="#campaigns">Campaigns</a></li>
-                    <li><a href="#collateral">Enterprise</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                <svg class="sun-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="moon-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
+<nav>
+  <a href="#" class="nav-name">Saef Iqbal Ansari</a>
+  <div class="nav-links">
+    <a href="#results">Impact</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">B2B Content & Organic Growth Lead</div>
+    <h1>Translating technical complexity into<br /><em>search authority</em> &amp; pipeline.</h1>
+    <p class="hero-body">
+      I lead organic marketing for a specialized B2B accessibility consultancy. By aligning technical SEO, thought leadership, and sales enablement, I turn complex regulations into enterprise growth. 
+    </p>
+    <div class="hero-tags">
+      <span class="tag">B2B Marketing Strategy</span>
+      <span class="tag">Technical SEO</span>
+      <span class="tag">Thought Leadership</span>
+      <span class="tag">Enterprise Proposals & RFPs</span>
+      <span class="tag">Event Marketing</span>
+      <span class="tag">Digital Accessibility (WCAG)</span>
+    </div>
+    <a href="#contact" class="hero-cta">
+      Let's Talk
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <!-- RESULTS -->
+  <section id="results" class="fade-in">
+    <div class="section-label">Verified Impact</div>
+    <h2>Results, not claims.</h2>
+
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num">566<span>K+</span></div>
+        <div class="stat-desc">Organic Search Impressions</div>
+        <div class="stat-sub">12-Month Performance (Google Search Console)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">4.6<span>K+</span></div>
+        <div class="stat-desc">Organic Clicks Generated</div>
+        <div class="stat-sub">Average global search position of 15.8</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">4,800</div>
+        <div class="stat-desc">LinkedIn Followers</div>
+        <div class="stat-sub">Scaled company page from 0 entirely organically</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">34.5<span>%</span></div>
+        <div class="stat-desc">Average Organic Engagement Rate</div>
+        <div class="stat-sub">Across 271,000+ impressions and 145 posts/year</div>
+      </div>
+    </div>
+
+    <div class="chart-grid fade-in">
+      <!-- Search chart -->
+      <div class="chart-wrap">
+        <div class="chart-title">SEO Performance Trajectory (12 Months)</div>
+        <canvas id="searchChart" height="220" aria-label="Bar chart showing scaling organic search traffic."></canvas>
+      </div>
+
+      <!-- LinkedIn chart -->
+      <div class="chart-wrap">
+        <div class="chart-title">LinkedIn Engagement Rate (12 Months)</div>
+        <canvas id="liChart" height="220" aria-label="Line chart showing peak engagement rate of 55%."></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK / CASE STUDIES -->
+  <section id="work" class="fade-in">
+    <div class="section-label">Featured Work</div>
+    <h2>High-intent regulatory content.</h2>
+
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Search Dominance</div>
+        <div class="work-title">DOJ Title II & III Guide</div>
+        <div class="work-period">69,000+ Impressions | Position 6.4</div>
+      </div>
+      <div class="work-body">
+        <p>Authored a comprehensive guide breaking down the DOJ's updates to ADA Title II. This piece successfully captured high-intent, bottom-of-funnel search traffic from US public sector entities seeking compliance clarity.</p>
+        <a href="https://www.pivotalaccessibility.com/2025/11/doj-to-revisit-ada-title-ii-and-iii-and-what-it-means-for-digital-accessibility/" target="_blank" rel="noopener" class="work-link">
+          Read the article 
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Market Education</div>
+        <div class="work-title">European Accessibility Act (EAA)</div>
+        <div class="work-period">20,000+ Impressions | Position 3.8</div>
+      </div>
+      <div class="work-body">
+        <p>Created a highly technical enforcement guide for the EAA following the critical June 2025 deadline. Achieved front-page global rankings for highly competitive European compliance queries, driving international enterprise leads.</p>
+        <a href="https://www.pivotalaccessibility.com/2025/09/eaa-enforcement-in-europe-following-the-june-2025-deadline/" target="_blank" rel="noopener" class="work-link">
+          Read the article
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">National Standards</div>
+        <div class="work-title">RPwD Act & IS 17802 Guide</div>
+        <div class="work-period">48,800+ Impressions | Position 5.8</div>
+      </div>
+      <div class="work-body">
+        <p>Developed the definitive guide on India's digital accessibility standards, ranking on page one and cited directly in Google AI Overviews for core search terms like <em>"India accessibility law"</em>.</p>
+        <a href="https://www.pivotalaccessibility.com/2025/06/rpwd-act-and-is-17802-indias-digital-accessibility-standards-2025-guide/" target="_blank" rel="noopener" class="work-link">
+          Read the article
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Revenue Enablement</div>
+        <div class="work-title">Enterprise RFPs & Tenders</div>
+        <div class="work-period">Business Development</div>
+      </div>
+      <div class="work-body">
+        <p>Beyond publishing, I actively drive business development by producing executive-facing documentation, including government tender responses (e.g., Gambling Support BC), technical capability statements, and sales collateral used to close enterprise deals.</p>
+        <div class="work-proof">
+          <span class="proof-pill">Proposal Writing</span>
+          <span class="proof-pill">Executive Summaries</span>
+          <span class="proof-pill">Sales Collateral</span>
         </div>
-    </header>
-
-    <main id="main-content">
-        <section class="hero container" aria-labelledby="hero-title">
-            <h1 id="hero-title">Building authority in complex industries.</h1>
-            <p class="hero-subtitle">I design and scale B2B organic growth pipelines through strategic content, technical SEO, and executive positioning. I don't just write; I own the end-to-end marketing lifecycle that drives measurable business impact.</p>
-        </section>
-
-        <section class="metrics-grid container" aria-label="Key Performance Metrics">
-            <div class="metric-card">
-                <span class="metric-number">566k+</span>
-                <span class="metric-label">Organic Search Impressions</span>
-            </div>
-            <div class="metric-card">
-                <span class="metric-number">34.5%</span>
-                <span class="metric-label">LinkedIn Organic Engagement</span>
-            </div>
-            <div class="metric-card">
-                <span class="metric-number">4.8k</span>
-                <span class="metric-label">Professional Audience Built</span>
-            </div>
-        </section>
-
-        <section id="expertise" class="container grid-section" aria-labelledby="expertise-title">
-            <div class="section-header">
-                <h2 id="expertise-title">End-to-End Ownership</h2>
-                <p>Translating highly technical domains into accessible, high-converting growth engines.</p>
-            </div>
-            <div class="three-col-grid">
-                <article class="grid-item">
-                    <h3>Organic Growth Strategy</h3>
-                    <p>Owning the complete SEO pipeline. From granular keyword and competitor research to long-form technical writing, WordPress publishing, metadata optimization, and performance monitoring via Google Search Console and Analytics.</p>
-                </article>
-                <article class="grid-item">
-                    <h3>Executive Brand Leadership</h3>
-                    <p>Scaling company LinkedIn presence from 0 to 4,800 followers with 271,000 annual impressions. Executing thought leadership, employer branding, hiring campaigns, and comprehensive on-site event coverage (Startup Mahakumbh, AI Summit).</p>
-                </article>
-                <article class="grid-item">
-                    <h3>Cross-Functional Execution</h3>
-                    <p>Managing the intersection of marketing, design, and web. Creating original photography, designing infographic architectures, managing email marketing pipelines, and driving cross-departmental sales enablement.</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="campaigns" class="container list-section" aria-labelledby="campaigns-title">
-            <div class="section-header">
-                <h2 id="campaigns-title">Technical Search Campaigns</h2>
-                <p>Architecting and executing high-ranking digital assets in strictly regulated technical niches.</p>
-            </div>
-            
-            <div class="campaign-list">
-                <article class="campaign-card">
-                    <div class="campaign-meta">
-                        <span class="tag">Avg. Position: 6.4</span>
-                        <span class="tag">69,000 Impressions</span>
-                        <span class="tag">254 Clicks</span>
-                    </div>
-                    <h3>DOJ to Revisit ADA Title II & III</h3>
-                    <p class="campaign-desc">A comprehensive breakdown of legal shifts in digital accessibility standards. Secured page-one rankings for highly competitive legal-tech search queries.</p>
-                    <div class="execution-list">
-                        <strong>My Execution:</strong> Topic research, keyword strategy, long-form technical writing, infographic creation, CMS deployment, and performance tracking.
-                    </div>
-                    <a href="https://www.pivotalaccessibility.com/2025/11/doj-to-revisit-ada-title-ii-and-iii-and-what-it-means-for-digital-accessibility/" target="_blank" rel="noopener noreferrer" class="external-link">View Live Campaign <span aria-hidden="true">→</span></a>
-                </article>
-
-                <article class="campaign-card">
-                    <div class="campaign-meta">
-                        <span class="tag">Avg. Position: 5.0</span>
-                        <span class="tag">49,000 Impressions</span>
-                        <span class="tag">411 Clicks</span>
-                    </div>
-                    <h3>RPwD Act & IS 17802 Guide</h3>
-                    <p class="campaign-desc">An authoritative 2025 guide translating complex Indian digital accessibility standards into actionable B2B frameworks.</p>
-                    <div class="execution-list">
-                        <strong>My Execution:</strong> Competitor gap analysis, SEO planning, editorial drafting, image sourcing, internal linking architecture, and executive review.
-                    </div>
-                    <a href="https://www.pivotalaccessibility.com/2025/06/rpwd-act-and-is-17802-indias-digital-accessibility-standards-2025-guide/" target="_blank" rel="noopener noreferrer" class="external-link">View Live Campaign <span aria-hidden="true">→</span></a>
-                </article>
-
-                <article class="campaign-card">
-                    <div class="campaign-meta">
-                        <span class="tag">Avg. Position: 3.8</span>
-                        <span class="tag">20,000 Impressions</span>
-                        <span class="tag">485 Clicks</span>
-                    </div>
-                    <h3>EAA Enforcement in Europe</h3>
-                    <p class="campaign-desc">Strategic commentary and deadline-driven content addressing the European Accessibility Act enforcement, driving high-intent B2B traffic.</p>
-                    <div class="execution-list">
-                        <strong>My Execution:</strong> End-to-end lifecycle ownership from ideation to final WordPress publication and LinkedIn syndication strategy.
-                    </div>
-                    <a href="https://www.pivotalaccessibility.com/2025/09/eaa-enforcement-in-europe-following-the-june-2025-deadline/" target="_blank" rel="noopener noreferrer" class="external-link">View Live Campaign <span aria-hidden="true">→</span></a>
-                </article>
-            </div>
-        </section>
-
-        <section id="collateral" class="container grid-section" aria-labelledby="collateral-title">
-            <div class="section-header">
-                <h2 id="collateral-title">Sales Enablement & Enterprise Documentation</h2>
-                <p>Bridging the gap between top-of-funnel marketing and closed-won revenue.</p>
-            </div>
-            <div class="content-block">
-                <p>A mature marketing function requires more than organic traffic; it requires arming the sales team with undeniable authority. Beyond public-facing content, I strategize and produce the critical documentation required to win enterprise and public sector contracts.</p>
-                <ul class="clean-list">
-                    <li><strong>Government Proposals:</strong> Drafting compliant, compelling responses for state and federal public sector tenders.</li>
-                    <li><strong>Enterprise RFPs:</strong> Architecting detailed technical responses that clearly position capabilities against competitor alternatives.</li>
-                    <li><strong>Capability Statements:</strong> Designing and writing high-impact corporate overviews for executive stakeholders.</li>
-                    <li><strong>Sales Collateral:</strong> Creating brochures, one-pagers, and localized event marketing materials (e.g., Accessibility Expo Dubai).</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="container trajectory-section" aria-labelledby="background-title">
-            <h2 id="background-title">Trajectory</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">April 2026 – Present</div>
-                    <div class="timeline-content">
-                        <h3>Project & Content Lead</h3>
-                        <span class="company">Pivotal Accessibility</span>
-                        <p>Promoted through Content Writer, Content Strategist, and Senior Content Strategist. Currently owning the entire B2B organic marketing lifecycle, merging deep technical accessibility knowledge with high-level growth strategy.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Academic Background</div>
-                    <div class="timeline-content">
-                        <h3>MA & BA, English Literature</h3>
-                        <span class="company">University of Delhi (Ramjas College)</span>
-                        <p>Rigorous training in research, critical analysis, and structural communication.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-container">
-            <div class="footer-info">
-                <p>Ready to scale your B2B marketing function?</p>
-                <a href="https://linkedin.com/" class="footer-link">Connect on LinkedIn</a>
-            </div>
-            <div class="footer-meta">
-                <p>Engineered for speed. Designed for clarity.</p>
-                <p class="accessibility-statement">This portfolio conforms to WCAG 2.2 AA standards. Built with semantic HTML, CSS, and vanilla JavaScript.</p>
-            </div>
+      </div>
+    </div>
+    
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Event Marketing</div>
+        <div class="work-title">Global Industry Conferences</div>
+        <div class="work-period">Campaign Planning & Execution</div>
+      </div>
+      <div class="work-body">
+        <p>Led end-to-end marketing support for major industry events including the AI Impact Summit, Accessibility Expo Dubai, and Startup Mahakumbh. Managed live coverage, collateral design, thought leadership, and post-event communications.</p>
+        <div class="work-proof">
+          <span class="proof-pill">Live Coverage</span>
+          <span class="proof-pill">Brand Collateral</span>
+          <span class="proof-pill">Social Strategy</span>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-in">
+    <div class="section-label">Experience</div>
+    <h2>Career progression.</h2>
+
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Pivotal Accessibility</div>
+        <div class="work-title">Project & Content Lead</div>
+        <div class="work-period">November 2022 – Present</div>
+      </div>
+      <div class="work-body">
+        <p>Progressed rapidly from Content Writer (2022) to Senior Content Strategist (2023), and ultimately to Project & Content Lead (April 2026). I currently direct the company's integrated content and organic marketing function.</p>
+        <p>I coordinate initiatives across leadership, accessibility consultants, developers, and sales teams to strengthen brand authority. I manage the editorial calendar, execute technical SEO, direct the LinkedIn strategy, and translate highly complex WCAG/regulatory frameworks into commercially viable B2B content.</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Collegedunia</div>
+        <div class="work-title">Content Writer</div>
+        <div class="work-period">November 2022 – May 2023</div>
+      </div>
+      <div class="work-body">
+        <p>Produced SEO-optimized educational content, managed editorial workflows, and utilized Google Analytics to monitor search performance across high-traffic educational portals.</p>
+      </div>
+    </div>
+    
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Delhi University</div>
+        <div class="work-title">Master of Arts & JRF</div>
+        <div class="work-period">English Literature</div>
+      </div>
+      <div class="work-body">
+        <p>Leveraged an academic background in language and critical analysis (UGC-NET & JRF Honors) into a career focused on complex technical communication and digital accessibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <div class="section-label">Capabilities</div>
+    <h2>The full stack.</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Marketing & Strategy</h4>
+        <ul>
+          <li>Organic Growth Strategy</li>
+          <li>B2B Marketing & Thought Leadership</li>
+          <li>Employer Branding</li>
+          <li>Event Marketing & Campaigns</li>
+          <li>Marketing Operations</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>SEO & Analytics</h4>
+        <ul>
+          <li>Technical & On-Page SEO</li>
+          <li>Search Intent & Keyword Research</li>
+          <li>Google Search Console</li>
+          <li>Google Analytics</li>
+          <li>LinkedIn Analytics</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Content & Domain</h4>
+        <ul>
+          <li>Enterprise RFPs & Proposals</li>
+          <li>Whitepapers & Case Studies</li>
+          <li>Executive Communication</li>
+          <li>WCAG & Digital Accessibility</li>
+          <li>Global Compliance (ADA, EAA)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
+    <div class="section-label">Get in touch</div>
+    <h2>Let's build authority.</h2>
+    <div class="contact-row">
+      <div class="contact-left">
+        <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:2rem;">
+          I am actively seeking Tier-2 global remote opportunities (US/UK/EU companies) as a Content Lead, Growth Marketer, or Product Marketing Manager where I can drive pipeline through strategic, high-intent content.
+        </p>
+      </div>
+      <div class="contact-right">
+        <a href="https://www.linkedin.com/in/saef-iqbal" target="_blank" rel="noopener" class="contact-link">
+          LinkedIn
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="mailto:saef36@gmail.com" class="contact-link">
+          Email
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>Saef Iqbal Ansari</span>
+  <span>New Delhi, India</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// Search chart (Simulated trend matching 566k total impressions over 12 months with massive Q3 spike)
+const searchLabels = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
+const searchImpressions = [15000, 22000, 68000, 61000, 58000, 50000, 48000, 55000, 46000, 49000, 39000, 55000];
+const searchClicks = [120, 180, 550, 480, 450, 390, 380, 450, 360, 410, 330, 500];
+
+new Chart(document.getElementById('searchChart'), {
+  data: {
+    labels: searchLabels,
+    datasets: [
+      {
+        type: 'bar',
+        label: 'Impressions',
+        data: searchImpressions,
+        backgroundColor: 'rgba(200,75,47,0.15)',
+        borderColor: '#c84b2f',
+        borderWidth: 1,
+        yAxisID: 'y'
+      },
+      {
+        type: 'line',
+        label: 'Clicks',
+        data: searchClicks,
+        borderColor: '#0f0e0d',
+        borderWidth: 2,
+        pointRadius: 2,
+        pointBackgroundColor: '#0f0e0d',
+        tension: 0.35,
+        fill: false,
+        yAxisID: 'y2'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: true, labels: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693', boxWidth: 12 } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      x: { ticks: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693' }, grid: { display: false } },
+      y: { 
+        type: 'linear',
+        display: true,
+        position: 'left',
+        ticks: { font: { family: 'DM Sans', size: 10 }, color: '#9a9693', callback: v => (v/1000)+'k' }, 
+        grid: { color: 'rgba(0,0,0,0.05)' } 
+      },
+      y2: {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        ticks: { font: { family: 'DM Sans', size: 10 }, color: '#0f0e0d' },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// LinkedIn chart (Simulated trend matching 264k impressions & 34.5% avg ER with Feb peak)
+const liLabels = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
+const liImpr = [16000, 20000, 20000, 29000, 21000, 20000, 14000, 22000, 23000, 28000, 23000, 28000];
+const liER = [35, 36, 25, 25, 22, 35, 25, 56, 53, 28, 50, 22];
+
+new Chart(document.getElementById('liChart'), {
+  data: {
+    labels: liLabels,
+    datasets: [
+      {
+        type: 'bar',
+        label: 'Impressions',
+        data: liImpr,
+        backgroundColor: 'rgba(15,14,13,0.08)',
+        borderColor: '#4a4845',
+        borderWidth: 1,
+        yAxisID: 'y'
+      },
+      {
+        type: 'line',
+        label: 'Engagement Rate %',
+        data: liER,
+        borderColor: '#c84b2f',
+        borderWidth: 2,
+        pointRadius: 2,
+        pointBackgroundColor: '#c84b2f',
+        tension: 0.35,
+        fill: false,
+        yAxisID: 'y2'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: true, labels: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693', boxWidth: 12 } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      x: { ticks: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693' }, grid: { display: false } },
+      y: { 
+        type: 'linear',
+        display: true,
+        position: 'left',
+        ticks: { font: { family: 'DM Sans', size: 10 }, color: '#9a9693', callback: v => (v/1000)+'k' }, 
+        grid: { color: 'rgba(0,0,0,0.05)' } 
+      },
+      y2: {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        ticks: { font: { family: 'DM Sans', size: 10 }, color: '#c84b2f', callback: v => v + '%' },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
