@@ -34,28 +34,34 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // 3. CHART JS CONFIGURATION
-// Common options for responsiveness and fixing the stretch bug
-const commonOptions = {
-  responsive: true,
-  maintainAspectRatio: false, // Allows it to fill the .canvas-container
-  plugins: {
-    legend: { display: true, labels: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693', boxWidth: 12 } },
-    tooltip: { mode: 'index', intersect: false }
-  },
-  scales: {
-    x: { ticks: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693' }, grid: { display: false } },
-    y: { 
-      type: 'linear', display: true, position: 'left',
-      ticks: { font: { family: 'DM Sans', size: 10 }, color: '#9a9693', callback: v => (v/1000)+'k' }, 
-      grid: { color: 'rgba(128,128,128,0.1)' } 
+// Create a function to generate options so we don't lose formatting functions when duplicating
+function getChartOptions(isPercentage = false) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false, // Allows it to fill the .canvas-container
+    plugins: {
+      legend: { display: true, labels: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693', boxWidth: 12 } },
+      tooltip: { mode: 'index', intersect: false }
     },
-    y2: {
-      type: 'linear', display: true, position: 'right',
-      ticks: { font: { family: 'DM Sans', size: 10 }, color: '#9a9693' },
-      grid: { display: false }
+    scales: {
+      x: { ticks: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693' }, grid: { display: false } },
+      y: { 
+        type: 'linear', display: true, position: 'left',
+        ticks: { font: { family: 'DM Sans', size: 10 }, color: '#9a9693', callback: v => (v/1000)+'k' }, 
+        grid: { color: 'rgba(128,128,128,0.1)' } 
+      },
+      y2: {
+        type: 'linear', display: true, position: 'right',
+        ticks: { 
+          font: { family: 'DM Sans', size: 10 }, 
+          color: isPercentage ? '#c84b2f' : '#9a9693', 
+          callback: isPercentage ? (v => v + '%') : undefined 
+        },
+        grid: { display: false }
+      }
     }
-  }
-};
+  };
+}
 
 // Search chart 
 const searchLabels = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
@@ -76,17 +82,13 @@ new Chart(document.getElementById('searchChart'), {
       }
     ]
   },
-  options: commonOptions
+  options: getChartOptions(false)
 });
 
 // LinkedIn chart 
 const liLabels = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
 const liImpr = [16000, 20000, 20000, 29000, 21000, 20000, 14000, 22000, 23000, 28000, 23000, 28000];
 const liER = [35, 36, 25, 25, 22, 35, 25, 56, 53, 28, 50, 22];
-
-// Clone common options and update right Y axis for percentage
-const liOptions = JSON.parse(JSON.stringify(commonOptions));
-liOptions.scales.y2.ticks.callback = v => v + '%';
 
 new Chart(document.getElementById('liChart'), {
   data: {
@@ -102,5 +104,5 @@ new Chart(document.getElementById('liChart'), {
       }
     ]
   },
-  options: liOptions
+  options: getChartOptions(true)
 });
