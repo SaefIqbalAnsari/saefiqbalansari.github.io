@@ -19,10 +19,10 @@ themeToggleBtn.addEventListener('click', () => {
 
 function updateIcons(theme) {
   if (theme === 'dark') {
-    moonIcon.style.display = 'none';
+    moonIcon.style.display = 'none'; 
     sunIcon.style.display = 'block';
   } else {
-    moonIcon.style.display = 'block';
+    moonIcon.style.display = 'block'; 
     sunIcon.style.display = 'none';
   }
 }
@@ -34,39 +34,62 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // 3. CHART JS CONFIGURATION
-// Create a function to generate options so we don't lose formatting functions when duplicating
-function getChartOptions(isPercentage = false) {
+function getChartOptions(metricType) {
+  // metricType can be 'position' or 'percentage'
+  const isPosition = metricType === 'position';
+  const isPercentage = metricType === 'percentage';
+
   return {
     responsive: true,
-    maintainAspectRatio: false, // Allows it to fill the .canvas-container
+    maintainAspectRatio: false,
+    layout: { 
+      padding: { left: 10, right: 10, top: 10, bottom: 0 } // Prevents any label clipping on the edges
+    },
     plugins: {
       legend: { display: true, labels: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693', boxWidth: 12 } },
       tooltip: { mode: 'index', intersect: false }
     },
     scales: {
-      x: { ticks: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693' }, grid: { display: false } },
+      x: { 
+        ticks: { font: { family: 'DM Sans', size: 11 }, color: '#9a9693', maxRotation: 45, minRotation: 45 }, 
+        grid: { display: false } 
+      },
       y: { 
         type: 'linear', display: true, position: 'left',
-        ticks: { font: { family: 'DM Sans', size: 10 }, color: '#9a9693', callback: v => (v/1000)+'k' }, 
-        grid: { color: 'rgba(128,128,128,0.1)' } 
+        ticks: { 
+          font: { family: 'DM Sans', size: 10 }, 
+          color: '#9a9693', 
+          // Forces '10k' formatting instead of '10,000' to prevent the cutoff bug
+          callback: function(value) { return value === 0 ? '0' : (value / 1000) + 'k'; } 
+        }, 
+        grid: { color: 'rgba(128,128,128,0.1)' }, 
+        beginAtZero: true
       },
       y2: {
         type: 'linear', display: true, position: 'right',
+        reverse: isPosition, // Flips the axis so Position 1 is at the top of the chart!
+        min: isPosition ? 1 : undefined, // Sets absolute top of chart to Position 1
+        max: isPosition ? 60 : undefined, // Sets absolute bottom of chart to Position 60
         ticks: { 
           font: { family: 'DM Sans', size: 10 }, 
-          color: isPercentage ? '#c84b2f' : '#9a9693', 
-          callback: isPercentage ? (v => v + '%') : undefined 
+          color: isPercentage ? '#c84b2f' : (isPosition ? '#0f0e0d' : '#9a9693'), 
+          callback: function(value) { 
+            if (isPercentage) return value + '%';
+            if (isPosition) return 'Pos ' + value;
+            return value;
+          }
         },
-        grid: { display: false }
+        grid: { display: false },
+        beginAtZero: isPercentage
       }
     }
   };
 }
 
-// Search chart 
+// Search chart (Impressions vs Average Position)
 const searchLabels = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
-const searchImpressions = [15000, 22000, 68000, 61000, 58000, 50000, 48000, 55000, 46000, 49000, 39000, 55000];
-const searchClicks = [120, 180, 550, 480, 450, 390, 380, 450, 360, 410, 330, 500];
+const searchImpressions = [12000, 14000, 22000, 38000, 48000, 52000, 55000, 68000, 59000, 65000, 58000, 64000]; 
+const searchPosition = [57, 54, 45, 30, 22, 18, 15, 11, 10, 10, 11, 10]; // Dropping rank numbers = higher on the chart
 
 new Chart(document.getElementById('searchChart'), {
   data: {
@@ -77,18 +100,18 @@ new Chart(document.getElementById('searchChart'), {
         backgroundColor: 'rgba(200,75,47,0.15)', borderColor: '#c84b2f', borderWidth: 1, yAxisID: 'y'
       },
       {
-        type: 'line', label: 'Clicks', data: searchClicks,
-        borderColor: '#9a9693', borderWidth: 2, pointRadius: 2, pointBackgroundColor: '#9a9693', tension: 0.35, fill: false, yAxisID: 'y2'
+        type: 'line', label: 'Avg Position', data: searchPosition,
+        borderColor: '#9a9693', borderWidth: 2, pointRadius: 3, pointBackgroundColor: '#9a9693', tension: 0.35, fill: false, yAxisID: 'y2'
       }
     ]
   },
-  options: getChartOptions(false)
+  options: getChartOptions('position')
 });
 
-// LinkedIn chart 
+// LinkedIn chart (Impressions vs Engagement Rate)
 const liLabels = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
-const liImpr = [16000, 20000, 20000, 29000, 21000, 20000, 14000, 22000, 23000, 28000, 23000, 28000];
-const liER = [35, 36, 25, 25, 22, 35, 25, 56, 53, 28, 50, 22];
+const liImpr = [16000, 19000, 19000, 29000, 21000, 20000, 14000, 25000, 23000, 28000, 23000, 28000];
+const liER = [35, 36, 25, 25, 22, 35, 25, 56, 53, 28, 50, 22]; 
 
 new Chart(document.getElementById('liChart'), {
   data: {
@@ -100,9 +123,9 @@ new Chart(document.getElementById('liChart'), {
       },
       {
         type: 'line', label: 'Engagement Rate %', data: liER,
-        borderColor: '#c84b2f', borderWidth: 2, pointRadius: 2, pointBackgroundColor: '#c84b2f', tension: 0.35, fill: false, yAxisID: 'y2'
+        borderColor: '#c84b2f', borderWidth: 2, pointRadius: 3, pointBackgroundColor: '#c84b2f', tension: 0.35, fill: false, yAxisID: 'y2'
       }
     ]
   },
-  options: getChartOptions(true)
+  options: getChartOptions('percentage')
 });
