@@ -104,7 +104,7 @@ new Chart(document.getElementById('searchChart'), {
 });
 
 // Chart 2: LinkedIn Follower Growth (Area Chart tracking 0 to 4800)
-const growthLabels = ['Nov 2022', 'Nov 2023', 'Nov 2024', 'Nov 2025', 'Jun 2026'];
+const growthLabels = ['Jul 2023', 'Apr 2024', 'Jan 2025', 'Oct 2025', 'Jun 2026'];
 const followerGrowth = [0, 1600, 3200, 4200, 4800]; 
 
 new Chart(document.getElementById('liChart'), {
